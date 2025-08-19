@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: tycoon-api
+    env: python
+    rootDir: server
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /healthz
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: APP_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"        # lock down later to your app domain(s)
+      - key: DB_PATH
+        value: /var/data/users.db
+    disk:
+      name: db
+      mountPath: /var/data
+      sizeGB: 1

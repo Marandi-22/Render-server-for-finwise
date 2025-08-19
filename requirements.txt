@@ -1,0 +1,5 @@
+flask==3.*
+flask-cors==4.*
+pyjwt==2.*
+werkzeug==3.*
+gunicorn==21.*
