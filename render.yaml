@@ -12,10 +12,7 @@ services:
       - key: APP_SECRET
         generateValue: true
       - key: CORS_ORIGINS
-        value: "*"        # lock down later to your app domain(s)
-      - key: DB_PATH
-        value: /var/data/users.db
-    disk:
-      name: db
-      mountPath: /var/data
-      sizeGB: 1
+        value: "*"   # tighten later
+      # Optional: override DB path (defaults to server/users.db from app.py)
+      # - key: DB_PATH
+      #   value: users.db
