@@ -12,7 +12,6 @@ services:
       - key: APP_SECRET
         generateValue: true
       - key: CORS_ORIGINS
-        value: "*"   # tighten later
-      # Optional: override DB path (defaults to server/users.db from app.py)
-      # - key: DB_PATH
-      #   value: users.db
+        value: "*"
+      - key: DB_PATH
+        value: /tmp/users.db
